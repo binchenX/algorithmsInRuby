@@ -99,11 +99,8 @@ end
 #priority queue interface
 # i.e push
 def insert a, k
-
-	a << k
-
-
-
+	a << -1
+	increaseKey a, a.size-1,k
 end 
 
 
@@ -161,6 +158,10 @@ puts "after build max heap"
 binary_tree_print a 
 puts max a 
 increaseKey a, (a.size-1) ,14
+binary_tree_print a 
+insert a,20
+binary_tree_print a 
+insert a,13
 binary_tree_print a 
 
 =begin
