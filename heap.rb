@@ -12,9 +12,7 @@ end
 
 #assume left(i), right(i) are max-heaps
 def max_heapify a,i 
-
 	s = a.size - 1  
-
 	l = left i 
 	r = right i 
 
@@ -29,23 +27,15 @@ def max_heapify a,i
 		swap a , i, t
 		max_heapify a , t
 	end 
-
 end
-
 
 def swap a , i ,j 
 	t = a[j]
 	a[j]= a[i]
 	a[i] = t
-	
 end 
 
-#if i started from 1, it will be much simpler
-#left = 2i
-#right = 2i+1
-#parent = n/2
-
-def left i 
+def left i	
 	2*i + 1
 end 
 
@@ -53,11 +43,9 @@ def right i
 	2*i + 2
 end
 
-#parent 0 == nil 
 def parent i 
 	(i-1)/2
 end 
-
 
 
 #priority queue interface
@@ -67,7 +55,6 @@ def insert a, k
 	increaseKey a, a.size-1,k
 end 
 
-
 def increaseKey a, i, key
 	return if a[i] >= key
 	a[i] = key
@@ -76,7 +63,6 @@ def increaseKey a, i, key
 		swap a, parent(i), i
 		i = parent(i)
 	end
-
 end 
 
 
@@ -95,24 +81,14 @@ def max a
 	a[0]
 end 
 
-
-
 # heap sort
-#
 def heap_sort a 
 
 
 end
 
 
-=begin
-a = [3,4,6,7,12,5]
-binary_tree_print a 
-max_heapify a , 1 
-puts "after heapify"
-binary_tree_print a 
-=end
-
+#TEST
 a = [3,4,6,7,12,5]
 a.binary_tree_print  
 build_max_heap a 
@@ -126,12 +102,7 @@ a.binary_tree_print
 insert a,13
 a.binary_tree_print  
 
-=begin
-3.downto(1) do |i|
-puts "space #{item_space 3 ,i} leading #{leading 3,i}"
-end
+a = [3,4,6,7,12,5]
+heap_sort a
+a.binary_tree_print
 
-b=[]
-10.times{|i| b << Random.new.rand(9)}
-binary_tree_print b
-=end
