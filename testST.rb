@@ -4,7 +4,7 @@ require 'test/unit'
 #to use assert
 class TestBinarySearchST <  Test::Unit::TestCase
 
-def testAll
+def test_all
 	h = BinarySearchSymbloTable.new
 	refHash = {}
 	k = ['s','e','a','r','c','h','e','x','a','m','p','l','e']
@@ -22,10 +22,9 @@ def testAll
 
 	puts h.keys.sort.inspect
 	assert_equal('a',h.floor('a'))
-	puts "floor a " +  h.floor('a')
-	puts "floor b " + h.floor('b')
-	puts "ceiling a " + h.ceiling('a')
-	puts "ceiling b " + h.ceiling('b')
+	assert_equal('a',h.floor('b'))
+	assert_equal('a',h.ceiling('a'))
+	assert_equal('c',h.ceiling('b'))
 
 	assert_equal(true,h.contains?('s'))
 	h.delete('s')

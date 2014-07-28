@@ -2,7 +2,6 @@
 #assume d is increamental sorted
 #return the index if found, otherwise return the number of
 #elements which are smaller than t
-#
 def binarySearch d , t
 	lo = 0
 	hi = d.size() -1

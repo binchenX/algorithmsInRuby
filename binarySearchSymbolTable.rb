@@ -79,14 +79,14 @@ class BinarySearchSymbloTable
 		@k
 	end
 
-	# biggest key that is <= k
-	def floor k
+	# smallest key that is >= K
+	def ceiling k
 		 r = rank(k)
 		 @k[r]
 	end
 
-	#smallest key that is >= K
-	def ceiling k
+	# biggest key that is <= k
+	def floor k
 		r = rank(k)
 		if @k[r].eql?(k) then return k end
 		@k[r-1]
