@@ -27,15 +27,19 @@ class TestBinarySearchST <  Test::Unit::TestCase
 
 	end
 
-	def test_2
+	def test_floor
 		assert_equal('a',@h.floor('a'))
 		assert_equal('a',@h.floor('b'))
+	end
+
+	def test_ceiling
 		assert_equal('a',@h.ceiling('a'))
 		assert_equal('c',@h.ceiling('b'))
+	end
 
+	def test_delete
 		assert_equal(true,@h.contains?('s'))
 		@h.delete('s')
 		assert_equal(false,@h.contains?('s'))
-
 	end
 end
