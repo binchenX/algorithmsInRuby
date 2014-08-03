@@ -2,7 +2,9 @@ require_relative 'orderedArrayST'
 require_relative 'bst'
 require 'test/unit'
 
-class TestBinarySearchST <  Test::Unit::TestCase
+#Symbol Table implementation test cases
+#
+class TestST <  Test::Unit::TestCase
 	def setup
 		@h = create_st 
 		@refHash = {}
