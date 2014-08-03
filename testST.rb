@@ -16,8 +16,8 @@ class TestBinarySearchST <  Test::Unit::TestCase
 	end
 
 	def create_st
-		 OrderedArrayST.new
-#			BST.new
+#		 OrderedArrayST.new
+			BST.new
 	end
 
 	def test_1
@@ -63,5 +63,25 @@ class TestBinarySearchST <  Test::Unit::TestCase
 		puts "size is #{n}"
 		@h.deleteMin; assert_equal('c',@h.min) ; assert_equal(n-1,@h.size)
 		@h.deleteMin; assert_equal('e',@h.min) ; assert_equal(n-2,@h.size)
+	end
+
+	def test_select
+		assert_equal('a',@h.select(0))
+		assert_equal('c',@h.select(1))
+		assert_equal('h',@h.select(3))
+	end
+
+	def test_rank
+		assert_equal(0,@h.rank('a'))
+		assert_equal(1,@h.rank('c'))
+		assert_equal(3,@h.rank('h'))
+	end
+
+	def test_keys
+		assert_equal(@refHash.keys.sort,@h.keys)		
+	end
+
+	def test_keysInRange
+		assert_equal(@refHash.keys.select{|x| ('c'..'n').include?(x)}.sort, @h.keysInRange('c','n'))
 	end
 end
