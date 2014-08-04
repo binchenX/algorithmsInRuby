@@ -1,5 +1,7 @@
+require_relative 'listST'
 require_relative 'orderedArrayST'
 require_relative 'bst'
+require_relative 'hashST'
 require 'test/unit'
 
 #Symbol Table implementation test cases
@@ -19,10 +21,16 @@ class TestST <  Test::Unit::TestCase
 
 	def create_st
 #		 OrderedArrayST.new
-			BST.new
+#			BST.new
+#			ListST.new
+		HashST.new(5)
 	end
 
-	def test_1
+	def test_basic
+		test_put
+		test_delete
+	end
+	def test_put
 		@refHash.keys.each do |key|
 			assert_equal(@refHash[key],@h.get(key))
 		end
