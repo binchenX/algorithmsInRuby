@@ -25,16 +25,17 @@ class ListST
 		if @head.nil? then 
 			@head = Node.new(k,v)
 		else 
-			t = @head
-			while t != nil && t.next != nil do
+			p = t = @head
+			while t != nil do
 				if (t.k == k) then 
-					t.v = v; 
+					t.v = v
 					return 
-				end	
+				end
+				p = t
 				t = t.next
 			end
 			#t point to the tail
-			t.next = Node.new(k,v)
+			p.next = Node.new(k,v)
 		end
 		@n += 1
 	end
@@ -63,20 +64,30 @@ class ListST
 
 	def delete k 
 		return if @head.nil?
-		#l - previous node
+		#p - previous node
 		#k - current node under check
-		l = t = @head
+		p = t = @head
 		if @head.k == k then @head = @head.next end
 		while t != nil do
 			if (t.k == k) then 
 				if t == @head then @head = @head.next 
-				else               l.next = t.next
+				else               p.next = t.next
 				end
 				@n -= 1
 				return
 			end
-			l = t
+			p = t
 			t = t.next
 		end
+	end
+
+	def inspect
+		s = ""
+		t = @head
+		while t != nil do
+			s << "#{t.k} => #{t.v},"
+			t = t.next
+		end
+		s
 	end
 end 

@@ -29,12 +29,24 @@ class TestST <  Test::Unit::TestCase
 	def test_basic
 		test_put
 		test_delete
+		test_update
 	end
+
+	def test_update
+		h = create_st
+		h.put('a',2)
+		h.put('a',8)
+		assert_equal(8,h.get('a'))
+		assert_equal(1,h.size)
+	end
+	
 	def test_put
 		@refHash.keys.each do |key|
-			assert_equal(@refHash[key],@h.get(key))
+			assert_equal(@refHash[key],@h.get(key),"value for key #{key} is not correct")
 		end
 		assert_equal(@refHash.keys.size,@h.size)
+		
+		#if @h.respond_to?(:inspect) then puts @h.inspect end
 	end
 
 	def test_floor
@@ -70,7 +82,6 @@ class TestST <  Test::Unit::TestCase
 		return unless @h.respond_to?(:deleteMin)
 		assert_equal('a',@h.min)
 		n = @h.size
-		puts "size is #{n}"
 		@h.deleteMin; assert_equal('c',@h.min) ; assert_equal(n-1,@h.size)
 		@h.deleteMin; assert_equal('e',@h.min) ; assert_equal(n-2,@h.size)
 	end
