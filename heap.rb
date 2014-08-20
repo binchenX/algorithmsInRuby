@@ -2,6 +2,11 @@
 
 require './common.rb'
 
+
+
+
+
+
 #heap 
 def build_max_heap a
 	l = a.size
@@ -81,11 +86,6 @@ def max a
 	a[0]
 end 
 
-# heap sort
-def heap_sort a 
-
-
-end
 
 
 #TEST
