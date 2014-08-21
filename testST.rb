@@ -2,6 +2,7 @@ require_relative 'listST'
 require_relative 'orderedArrayST'
 require_relative 'bst'
 require_relative 'hashST'
+require_relative 'lpHashST'
 require 'test/unit'
 
 #Symbol Table implementation test cases
@@ -23,7 +24,8 @@ class TestST <  Test::Unit::TestCase
 #		 OrderedArrayST.new
 #			BST.new
 #			ListST.new
-		HashST.new(5)
+#		HashST.new(5)
+		LinearProbingHashST.new(20)
 	end
 
 	def test_basic
