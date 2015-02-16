@@ -1,7 +1,7 @@
 require_relative 'binarySearch'
 
 def assert c
-	if (!c ) then puts "Failed" end
+    if (!c ) then puts "Failed" end
 end
 
 

@@ -1,0 +1,23 @@
+- various implementation of map, which is also refered as symblo table or dictionary.
+
+
+naive/listST        :implement map use link list of nodes contains both key and value
+naive/orderedArrayST:implement map use one orderd array for keys and another array for values. key/value linkage is the array index.
+hashMap/hashST      :implement map use array of lists. array index intiates from hash(key) and conflict is solved by chaining. 
+hashMap/lpHashST    :implement map use parallel arrays. array index iniiates from hash(key) and conflict solved by linear probing.
+treeMap/treeMap     :implement map use binary serach tree.
+
+
+
+- difference b/w hashMap and treeMap  (average-case cost)
+                
+                hashMap*          treeMap
+insert          near o(N/M)        o(lgN)
+get             near o(N/M)        o(lgN)
+delete          near o(N/M)        o(lgN)
+travesal all    o(N)
+iterate keys    not sorted         sorted
+memory          48N + 32M          64N
+
+* for separate chaining , M is the size of the array.
+  for linear probling, the complexity for insert/get is o(1).

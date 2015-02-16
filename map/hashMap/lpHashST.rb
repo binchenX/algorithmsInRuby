@@ -83,15 +83,15 @@ class LinearProbingHashST
         resize(@c/2) if ( @n > 0 && @n == @c/8)
     end
 
-	  def size
-		  @n
-	  end
+      def size
+          @n
+      end
 
     def contains? k
-		get(k) != nil
+        get(k) != nil
     end
 
     def isEmpty?
-		@n == 0
+        @n == 0
     end
 end

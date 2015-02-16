@@ -10,8 +10,8 @@ are fully filled, and, if the last level of the tree is not complete, the nodes 
 left to right.
 
 Heap property
-All nodes are either [greater than or equal to] or [less than or equal to] each of its children, according to 
-a comparison predicate defined for the heap.
+All nodes are either [greater than or equal to] (for max priority queue ) or [less than or equal to] (for min priority queue) 
+each of its children, according to a comparison predicate defined for the heap.
 =end
 
 
@@ -36,7 +36,7 @@ class BinaryHeapPQ
   def delMax
     m = @a[1]  
     @a[1] = @a[@n]
-	@a[@n] = nil           #useful for debugging , e.g acess element already deleted in sinkDown
+    @a[@n] = nil           #useful for debugging , e.g acess element already deleted in sinkDown
     @n -= 1
     sinkDown(1)
     m
@@ -45,15 +45,15 @@ class BinaryHeapPQ
   
   # i.e peek
   def max
-  	@a[1]
+    @a[1]
   end
 
   def size
-	@n
+    @n
   end
 
   def isEmpty?
-	@n == 0 	
+    @n == 0     
   end
   #internal implemetation which preceeding interfaces rely on
   
@@ -83,21 +83,21 @@ class BinaryHeapPQ
   end
 
   def swap i ,j 
-  	t = @a[j]
-  	@a[j]= @a[i]
-  	@a[i] = t
+    t = @a[j]
+    @a[j]= @a[i]
+    @a[i] = t
   end 
 
-  def left i	
-  	2*i
+  def left i    
+    2*i
   end 
 
   def right i
-  	2*i + 1
+    2*i + 1
   end
 
   def parent i 
-  	i/2
+    i/2
   end 
   
   def less i , j
@@ -107,7 +107,7 @@ class BinaryHeapPQ
   end
  
   def inspect
-	@a.inspect + "->#{@n}"	
+    @a.inspect + "->#{@n}"  
   end
   private :swimUp,:sinkDown,:swap,:left,:right,:parent
 
